@@ -20,6 +20,11 @@
     flex-direction: column;
     justify-content: space-between;
     color: white;
+
+     & img {
+        width: 100%;
+        max-width: 300px;
+     }
 }
 
 .home__categories__wall{
@@ -38,6 +43,12 @@
 
 .Fantasia{
     grid-row: 1 / 4;
+
+    & img{
+        width: auto;
+        max-width: 120px;
+        height: 60%;
+    }
 }
 
 .home__populars{

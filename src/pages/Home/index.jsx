@@ -23,7 +23,6 @@ export default function Home() {
         <h1>Nuevo</h1>
         <Card color={"#64A5A6"}>
           <h1>Libros <br /> de la semana</h1>
-          <h1>Para ti</h1>
         </Card>
       </section >
       <section className="home__categories">

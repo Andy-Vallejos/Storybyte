@@ -36,10 +36,9 @@
   grid-column: 1 / 3; 
 }
 
-.Misterio {
-    grid-column: 1 / 3;
+.Fantasia{
+    grid-row: 1 / 4;
 }
-
 
 .home__populars{
     width: 100%;

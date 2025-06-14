@@ -1,4 +1,5 @@
 import "./home.css"
+import { NavMobile } from "/src/components"
 
 function Card({ name, color, picture, children }) {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
   ]
   return (
     <div className="home">
+      <NavMobile />
       < section className="home__new" >
         <h1>Nuevo</h1>
         <Card color={"#64A5A6"} picture={"/public/books.png"}>

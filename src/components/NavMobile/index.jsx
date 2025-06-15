@@ -1,20 +1,13 @@
 import './NavMobile.css'
-
-function CustomButton({ name, color, img }) {
-    return (
-        <div className='btn' style={{ background: color, boxShadow: "0px 0px 20px 2px" + color }}>
-            <img src={img} alt={`Icono de ${name}`} />
-        </div >
-    )
-}
+import { ButtonMobile } from '../Buttons'
 
 export default function NavMobile() {
     return (
         <div className="nav">
-            <CustomButton name="home " color="#C43342" img="/public/home.png" />
-            <CustomButton color="#0D47A1" img="/public/userBooks.png" />
-            <CustomButton color="#C43342" img="/public/home.png" />
-            <CustomButton color="#0D47A1" img="/public/userBooks.png" />
+            <ButtonMobile name="home " color="#C43342" img="/public/home.png" />
+            <ButtonMobile color="#0D47A1" img="/public/userBooks.png" />
+            <ButtonMobile color="#FFD54F" img="/public/home.png" />
+            <ButtonMobile color="#9C27B0" img="/public/userBooks.png" />
         </div>
     )
 }

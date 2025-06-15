@@ -1,11 +1,11 @@
 import "./home.css"
-import { NavMobile } from "/src/components"
+import { NavMobile, TopBar } from "/src/components"
 
 function Card({ name, color, picture, children }) {
   return (
     <section className={`${name} category home__new__banner`} style={{ background: color, boxShadow: "0px 0px 20px 2px" + color }}>
       {children}
-      <img src={picture} alt="" />
+      <img src={picture} alt={`Icono de una imagen de ${name}`} />
     </section>
   )
 }
@@ -20,31 +20,34 @@ export default function Home() {
     { name: 'Misterio', color: "#2F4F4F", picture: "/public/moon.png" }
   ]
   return (
-    <div className="home">
-      <NavMobile />
-      < section className="home__new" >
-        <h1>Nuevo</h1>
-        <Card color={"#64A5A6"} picture={"/public/books.png"}>
-          <h1>Libros <br /> de la semana</h1>
-        </Card>
-      </section >
-      <section className="home__categories">
-        <h1>Categorias</h1>
-        <section className="home__categories__wall">
-          {categorias.map((el) => {
-            return <Card name={el.name} color={el.color} picture={el.picture}>
-              <h1>{el.name}</h1>
-            </Card>
-          })}
+    <>
+      <TopBar></TopBar>
+      <div className="home">
+        <NavMobile />
+        < section className="home__new" >
+          <h1>Nuevo</h1>
+          <Card name={"libros"} color={"#64A5A6"} picture={"/public/books.png"}>
+            <h1>Libros <br /> de la semana</h1>
+          </Card>
+        </section >
+        <section className="home__categories">
+          <h1>Categorias</h1>
+          <section className="home__categories__wall">
+            {categorias.map((el, index) => {
+              return <Card name={el.name} color={el.color} picture={el.picture} key={index}>
+                <h1>{el.name}</h1>
+              </Card>
+            })}
+          </section>
         </section>
-      </section>
+      </div >
       <section className="home__populars">
         <h1>Más populares</h1>
         <section className="home__populars__category">
           <h1>TERROR</h1>
         </section>
       </section>
-    </div >
+    </>
   )
 }
 

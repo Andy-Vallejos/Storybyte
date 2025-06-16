@@ -15,7 +15,7 @@ export default function ButtonMobile({ name = "default", color, img }) {
     img = mode ? "/public/moonMode.png" : img
 
     return (
-        <div className='btn' style={{ background: color, boxShadow: `0px 0px 10px 2px ${color}` }} onClick={handleClick}>
+        <div className='btn' style={{ background: color, boxShadow: `0px 0px 10px 2px ${color}`, border: color === "transparent" ? "1px solid white" : "none" }} onClick={handleClick} >
             <img src={img} alt={`Icono de ${name}`} />
         </div >
     )

@@ -7,7 +7,7 @@ export default function TopBar() {
         <div className="topBar">
             <ButtonMobile name="mode" color={"#FFD700"} img="/public/sol 1.png" />
             <h1>Storybyte</h1>
-            <ButtonMobile color="#9C27B0" img="/public/userBooks.png" />
+            <ButtonMobile color="transparent" img="/public/user.png" />
         </div>
     )
 }

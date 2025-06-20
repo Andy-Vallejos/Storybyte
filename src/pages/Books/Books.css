@@ -13,6 +13,10 @@
   flex-wrap: wrap;
 }
 
+.books__link {
+  width: 100%;
+}
+
 form {
   width: 100%;
   padding: 20px 0px;

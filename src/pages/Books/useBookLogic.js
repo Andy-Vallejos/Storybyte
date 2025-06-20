@@ -58,7 +58,7 @@ export function useBookLogic() {
     if (trimmed) {
       setBooks([]);
       setHasMore(true);
-      setSearchTerm(trimmed || books);
+      setSearchTerm(trimmed);
       setPage(1);
     }
   };

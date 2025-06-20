@@ -1,5 +1,4 @@
 import { NavMobile, TopBar } from "/src/components";
-import { useEffect, useState } from "react";
 
 export default function MyBooks() {
     return (

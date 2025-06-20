@@ -1,6 +1,6 @@
 import './TopBar.css'
 import { ButtonMobile } from '../index'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
 
 export function TopBar() {
@@ -8,7 +8,8 @@ export function TopBar() {
 
     const routes = {
         '/': "Storytime",
-        '/my-books': "Mis libros"
+        '/my-books': "Mis libros",
+        '/user': "Perfil",
     }
 
     function getTitle(param) {
@@ -17,7 +18,8 @@ export function TopBar() {
     return (
         <div className="topBar">
             <h1>{getTitle(location.pathname)}</h1>
-            <ButtonMobile color="transparent" img="/public/user.png" />
+            {location.pathname === "/user" ? "" : <ButtonMobile color="transparent" img="/public/user.png" url={"/user"} />}
+
         </div>
     )
 }

@@ -3,6 +3,7 @@ import Home from './Home/Home';
 import MyBooks from './MyBooks/MyBooks';
 import Layout from './Layout/Layout';
 import User from "./User/User"
+import Books from './Books/Books';
 
 const router = createBrowserRouter([
     {
@@ -10,8 +11,10 @@ const router = createBrowserRouter([
         element: <Layout />,
         children: [
             { index: true, element: <Home /> },
+            { path: 'books', element: <Books /> },
             { path: 'my-books', element: <MyBooks /> },
-            { path: 'user', element: <User /> }
+            { path: 'user', element: <User /> },
+
         ]
     }
 ]);

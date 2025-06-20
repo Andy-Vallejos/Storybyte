@@ -10,6 +10,7 @@ export function TopBar() {
         '/': "Storytime",
         '/my-books': "Mis libros",
         '/user': "Perfil",
+        '/books': "Libros"
     }
 
     function getTitle(param) {

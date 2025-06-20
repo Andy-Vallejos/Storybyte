@@ -6,7 +6,7 @@ export default function User() {
         <div className='user'>
             <div className="img"
                 style={{
-                    backgroundImage: `url("/public/image.png")`,
+                    backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhGllJmAI98vgvh4Q3433e9PgvxxMoAdtMv8LTVLXro8K_WtiinYIrIp1reogOa4wl7bQ&usqp=CAU")`,
                 }}>
             </div>
             <section className='user__info'>

@@ -1,68 +1,68 @@
-.home{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
 }
 
-.home__new{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.home__new {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.home__new__banner{
+.home__new__banner {
+  width: 100%;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+
+  & img {
     width: 100%;
-    border-radius: 20px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: white;
-
-     & img {
-        width: 100%;
-        max-width: 300px;
-     }
+    max-width: 300px;
+  }
 }
 
-.home__categories__wall{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, auto);
-    gap: 10px;
-    padding: 20px 0px 0px 0px;
-    margin: auto;
+.home__categories__wall {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 10px;
+  padding: 20px 0px 0px 0px;
+  margin: auto;
 }
 
 .Accion {
-  grid-column: 1 / 3; 
+  grid-column: 1 / 3;
 }
 
-.Fantasia{
-    grid-row: 1 / 4;
+.Fantasia {
+  grid-row: 1 / 4;
 }
 
-.home__populars{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.home__populars {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.home__populars__category{
-    width: 100%;
-    height: 300px;
-    background: #6B8E23;
-    margin: 20px 0px 0px 0px;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    margin-bottom: 60px;
+.home__populars__category {
+  width: 100%;
+  height: 300px;
+  background: #6b8e23;
+  margin: 20px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 60px;
 }
 
-.home__populars__category h1{
-    color: white;
+.home__populars__category h1 {
+  color: white;
 }

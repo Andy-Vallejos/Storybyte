@@ -21,9 +21,7 @@ export default function Home() {
   ]
   return (
     <>
-      <TopBar></TopBar>
       <div className="home">
-        <NavMobile />
         < section className="home__new" >
           <h1>Nuevo</h1>
           <Card name={"libros"} color={"#64A5A6"} picture={"/public/books.png"}>

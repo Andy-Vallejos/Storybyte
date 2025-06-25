@@ -4,8 +4,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  background: rgba(0, 0, 0, 0.9);
+  gap: 30px;
   color: white;
   padding: 0px 30px;
   justify-content: center;
@@ -15,6 +14,7 @@
 
 .books__link {
   width: 100%;
+  height: auto;
 }
 
 form {
@@ -27,10 +27,10 @@ form input {
   width: 70%;
   padding: 10px;
   outline: none;
-  border: 1px solid white;
   border-radius: 10px 0px 0px 10px;
   background: none;
   font-size: 20px;
+  color: black;
 }
 
 form button {
@@ -38,19 +38,21 @@ form button {
   padding: 20px;
   border-radius: 0px 10px 10px 0px;
   border: 1px;
-  background: #0b3450;
+  background: rgb(0, 0, 0);
 }
 
 .card {
   width: 100%;
   height: 500px;
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   backdrop-filter: blur(100px);
-  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 10px 0px black;
+  transition: all 0.5s ease-in-out;
 }
 
 .card .img {
@@ -60,19 +62,27 @@ form button {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 20px;
+  position: relative;
+  box-shadow: 0 0 20px 0px black;
+}
+
+.books__card--title {
+  max-height: 60px;
+  overflow-y: auto;
+  font-size: 20px;
 }
 
 .card .img::after {
-  top: 0;
-  left: 0;
   background: inherit;
   position: absolute;
   content: "";
-  filter: blur(100px) saturate(1.5);
+  filter: blur(100px) saturate(3);
   width: 100%;
-  height: 100%;
+  height: 150%;
   scale: 1;
   z-index: -10;
+  top: 0;
+  left: 0;
 }
 
 .card footer {
@@ -93,15 +103,15 @@ form button {
     font-size: 12px;
   }
 
-  .card {
+  .books__link {
     width: 300px;
-    height: 400px;
-    box-shadow: none;
+    height: auto;
   }
 
-  .card .img::after {
-    width: 90%;
-    height: 90%;
-    filter: blur(50px) saturate(1);
+  .card {
+    height: 400px;
+  }
+  .card:hover {
+    transform: scale(1.1);
   }
 }

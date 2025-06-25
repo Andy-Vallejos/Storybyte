@@ -4,6 +4,7 @@ import MyBooks from './MyBooks/MyBooks';
 import Layout from './Layout/Layout';
 import User from "./User/User"
 import Books from './Books/Books';
+import BookDetail from './BookDetail/BookDetail';
 
 const router = createBrowserRouter([
     {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
         children: [
             { index: true, element: <Home /> },
             { path: 'books', element: <Books /> },
-            { path: 'books/:id', element: <h1>Hola producto</h1> },
+            { path: 'books/:key', element: <BookDetail /> },
             { path: 'my-books', element: <MyBooks /> },
             { path: 'user', element: <User /> },
 

@@ -5,13 +5,26 @@ export function useBookLogic() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
-  const [searchTerm, setSearchTerm] = useState("books");
+  const [searchTerm, setSearchTerm] = useState("popular");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [ratings, setRatings] = useState({});
 
   useEffect(() => {
     getBooks(searchTerm, page);
   }, [searchTerm, page]);
+
+  useEffect(() => {
+    const newRatings = {};
+    books.forEach((book) => {
+      if (!ratings[book.key]) {
+        newRatings[book.key] = (Math.random() * 5).toFixed(1);
+      }
+    });
+    if (Object.keys(newRatings).length > 0) {
+      setRatings((prev) => ({ ...prev, ...newRatings }));
+    }
+  }, [books]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,5 +76,5 @@ export function useBookLogic() {
     }
   };
 
-  return { books, loading, query, setQuery, handleSearch, hasMore };
+  return { ratings, books, loading, query, setQuery, handleSearch, hasMore };
 }

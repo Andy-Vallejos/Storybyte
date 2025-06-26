@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "name": "Andy Vallejos",
+        "email": "andyvallejosgb@gmail.com",
+        "age": 22,
+        "password": "agvbe26.",
+        "img": "https://randomuser.me/api/portraits/men/75.jpg",
+        "libros": [
+            "OL20874116W",
+            "OL276370W"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Carla Mendoza",
+        "email": "carla.mendoza@example.com",
+        "age": 28,
+        "password": "cmendoz@123",
+        "img": "https://randomuser.me/api/portraits/women/32.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Luis Fernández",
+        "email": "luis.fernandez@example.com",
+        "age": 35,
+        "password": "lf3rn@ndez!",
+        "img": "https://randomuser.me/api/portraits/men/45.jpg"
+    },
+    {
+        "id": 4,
+        "name": "María Gómez",
+        "email": "maria.gomez@example.com",
+        "age": 30,
+        "password": "mgomez_2025",
+        "img": "https://randomuser.me/api/portraits/women/54.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Jorge Ramírez",
+        "email": "jorge.ramirez@example.com",
+        "age": 27,
+        "password": "jorgeram123",
+        "img": "https://randomuser.me/api/portraits/men/65.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Ana Torres",
+        "email": "ana.torres@example.com",
+        "age": 24,
+        "password": "antorres!24",
+        "img": "https://randomuser.me/api/portraits/women/22.jpg"
+    }
+]

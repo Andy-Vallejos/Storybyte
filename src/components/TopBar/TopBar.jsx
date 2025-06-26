@@ -1,9 +1,11 @@
 import './TopBar.css'
 import { ButtonMobile } from '../index'
 import { useLocation, Link } from 'react-router-dom'
+import { useAuth } from '../../context/AuthProvider';
 
 
 export function TopBar() {
+    const { user } = useAuth();
     const location = useLocation();
     const stateTitle = location.state?.title;
 
@@ -20,8 +22,7 @@ export function TopBar() {
     return (
         <div className="topBar">
             <h1>{getTitle(location.pathname, stateTitle)}</h1>
-            {location.pathname === "/user" ? "" : <ButtonMobile color="transparent" img="/public/user.png" url={"/user"} />}
-
+            {location.pathname === "/user" ? "" : <ButtonMobile color="transparent" img={user.img} url={"/user"} name='top' />}
         </div>
     )
 }

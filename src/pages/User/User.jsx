@@ -1,19 +1,28 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthProvider';
 import './User.css'
 
+
 export default function User() {
+    const { logout, user } = useAuth();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
+    };
     return (
         <div className='user'>
             <div className="img"
                 style={{
-                    backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhGllJmAI98vgvh4Q3433e9PgvxxMoAdtMv8LTVLXro8K_WtiinYIrIp1reogOa4wl7bQ&usqp=CAU")`,
+                    backgroundImage: `url(${user.img})`,
                 }}>
             </div>
             <section className='user__info'>
                 <h1>
-                    Nombre
+                    {user.name}
                 </h1>
-                <p>nombre@gmail.com</p>
+                <p> {user.email}</p>
             </section>
 
             <ul>
@@ -25,7 +34,7 @@ export default function User() {
                     <img src="/public/padlock.png" alt="" />
                     <Link>Cambiar contraseña</Link>
                 </li>
-                <button >Salir</button>
+                <button onClick={handleLogout}>Salir</button>
 
             </ul>
         </div >

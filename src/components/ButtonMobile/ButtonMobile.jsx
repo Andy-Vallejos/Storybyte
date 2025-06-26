@@ -14,8 +14,6 @@ export function ButtonMobile({ name = "default", color, img, url }) {
     color = mode ? "#0D47A1" : color;
     img = mode ? "/public/moonMode.png" : img;
 
-
-
     return (
         <Link to={url}>
             <div
@@ -27,7 +25,7 @@ export function ButtonMobile({ name = "default", color, img, url }) {
                 }}
                 onClick={handleClick}
             >
-                <img src={img} alt={`Icono de ${name}`} />
+                <img src={img} alt={`Icono de ${name}`} style={{ width: name === "top" ? "100%" : "50%", borderRadius: name === "top" ? "50%" : "none" }} />
             </div>
         </Link>
     );

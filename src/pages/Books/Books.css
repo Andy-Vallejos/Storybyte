@@ -17,23 +17,24 @@
   height: auto;
 }
 
-form {
+.books__form {
   width: 100%;
   padding: 20px 0px;
   display: flex;
 }
 
-form input {
+.books__form--input {
   width: 70%;
   padding: 10px;
   outline: none;
   border-radius: 10px 0px 0px 10px;
   background: none;
   font-size: 20px;
-  color: black;
+  color: #000000;
+  border: 1px solid rgb(0, 0, 0);
 }
 
-form button {
+.books__form--btn {
   width: 30%;
   padding: 20px;
   border-radius: 0px 10px 10px 0px;
@@ -64,6 +65,9 @@ form button {
   border-radius: 20px;
   position: relative;
   box-shadow: 0 0 20px 0px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .books__card--title {

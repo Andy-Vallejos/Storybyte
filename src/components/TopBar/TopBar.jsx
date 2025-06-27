@@ -10,7 +10,7 @@ export function TopBar() {
     const stateTitle = location.state?.title;
 
     const routes = {
-        '/': "Storytime",
+        '/': "Storybyte",
         '/my-books': "Mis libros",
         '/user': "Perfil",
         '/books': "Libros"
@@ -22,7 +22,7 @@ export function TopBar() {
     return (
         <div className="topBar">
             <h1>{getTitle(location.pathname, stateTitle)}</h1>
-            {location.pathname === "/user" ? "" : <ButtonMobile color="transparent" img={user.img} url={"/user"} name='top' />}
+            {location.pathname === "/user" ? "" : <ButtonMobile img={user.img} url={"/user"} name='top' />}
         </div>
     )
 }

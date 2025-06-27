@@ -1,5 +1,21 @@
 .bookDetail {
   width: 100%;
-  min-height: 100vh;
-  padding: 30px;
+  min-height: 1000vh;
+}
+
+.bookDetail img {
+  width: 100%;
+  height: auto;
+}
+
+.bookDetail__info {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.bookDetail__info h1,
+h2,
+p {
+  font-size: 24px;
+  color: rgb(0, 0, 0);
 }

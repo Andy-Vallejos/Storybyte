@@ -5,7 +5,7 @@ export default function Layout() {
     return (
         <>
             <TopBar />
-            <Outlet />
+            <Outlet /><br /><br /><br />
             <NavMobile />
         </>
     )

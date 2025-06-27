@@ -10,7 +10,6 @@ export function AuthProvider({ children }) {
     const getUsers = async () => {
         try {
             const response = await axios.get("/data/users.json");
-            console.log(response.data)
             setUsers(response.data);
         } catch (error) {
             console.error("Error al obtener usuarios:", error);
@@ -22,7 +21,6 @@ export function AuthProvider({ children }) {
     }, []);
 
     const login = (email, password) => {
-        console.log(users)
         const foundUser = users.find(u => u.email === email);
         if (!foundUser || foundUser.password !== password) return false;
 

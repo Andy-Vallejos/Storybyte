@@ -1,21 +1,30 @@
 .bookDetail {
   width: 100%;
-  min-height: 1000vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.bookDetail img {
+.bookDetail__img {
   width: 100%;
-  height: auto;
+  height: 600px;
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .bookDetail__info {
-  padding: 20px;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 0px 20px 2px rgb(0, 0, 0);
 }
 
-.bookDetail__info h1,
-h2,
-p {
-  font-size: 24px;
-  color: rgb(0, 0, 0);
+.bookDetail__info h1 {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(100px) saturate(1);
+  padding: 20px;
 }

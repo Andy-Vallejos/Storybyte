@@ -12,7 +12,7 @@ export default function Books() {
                 <button className="books__form--btn" type="submit">Buscar</button>
             </form>
 
-            {books.map((book) => <BookCard key={book.key} book={book} rating={ratings[book.key]} />)}
+            {books.map((book) => <BookCard key={book.key} book={book} rating={ratings[book.edition_key]} />)}
 
             {loading && <img src="/loading.gif"></img>}
 

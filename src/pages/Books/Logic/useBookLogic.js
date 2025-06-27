@@ -11,14 +11,17 @@ export function useBookLogic() {
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useInfiniteQuery({
-      queryKey: ["popular", searchTerm],
+      queryKey: ["books", searchTerm],
       queryFn: ({ pageParam = 1 }) => fetchBooks(searchTerm, pageParam),
       getNextPageParam: (lastPage, allPages) =>
         lastPage.length > 0 ? allPages.length + 1 : undefined,
-      staleTime: 1000 * 60 * 5,
+      staleTime: 300000,
     });
 
-  const books = data?.pages.flat() ?? [];
+  let books = [];
+  if (data && data.pages) {
+    books = data.pages.flat();
+  }
 
   useEffect(() => {
     if (books.length === 0) return;

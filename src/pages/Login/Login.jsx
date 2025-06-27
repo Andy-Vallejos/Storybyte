@@ -26,6 +26,7 @@ export default function Login() {
         <div className='login'>
             <form onSubmit={handleSubmit} className='login__form'>
                 <input
+                    className='login__form--input'
                     type="email"
                     placeholder="Email"
                     onChange={e => setEmail(e.target.value)}
@@ -33,13 +34,14 @@ export default function Login() {
                     required
                 />
                 <input
+                    className='login__form--input'
                     type="password"
                     placeholder="Contraseña"
                     onChange={e => setPassword(e.target.value)}
                     value={password}
                     required
                 />
-                <button type="submit">Iniciar Sesión</button>
+                <button type="submit" className='login__form--btn'>Iniciar Sesión</button>
                 {error && <p style={{ color: "red" }}>{error}</p>}
             </form>
         </div>

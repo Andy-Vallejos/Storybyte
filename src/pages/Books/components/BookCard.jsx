@@ -15,7 +15,7 @@ export function BookCard({ book, rating }) {
                 <div className="card__img" style={{
                     backgroundImage: `url('${imageUrl}')`,
                 }}>
-                    {!imgLoaded && <img src="/public/loading.gif"></img>}
+                    {!imgLoaded && <img src="/loading.gif"></img>}
                     <img src={imageUrl} alt={book.title} style={{ display: "none" }} onLoad={() => setImgLoaded(true)} />
                 </div>
                 <h1 className="card__title">{book.title}</h1>

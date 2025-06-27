@@ -14,7 +14,7 @@ export default function Books() {
 
             {books.map((book) => <BookCard key={book.key} book={book} rating={ratings[book.key]} />)}
 
-            {loading && <img src="/public/loading.gif"></img>}
+            {loading && <img src="/loading.gif"></img>}
 
             {!hasMore && !loading && (
                 <div className="end-message">

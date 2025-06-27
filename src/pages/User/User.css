@@ -67,11 +67,8 @@
   color: #3e3e3e;
 }
 
-.user button {
+.user__btn {
   width: 80%;
-  padding: 20px;
   border-radius: 20px;
   background: rgb(196, 51, 66);
-  border: none;
-  cursor: pointer;
 }

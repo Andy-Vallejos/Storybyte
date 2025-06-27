@@ -27,14 +27,14 @@ export default function User() {
 
             <ul>
                 <li>
-                    <img src="/public/edit-profile.png" alt="" />
+                    <img src="/edit-profile.png" alt="" />
                     <Link>Editar perfil</Link>
                 </li>
                 <li>
-                    <img src="/public/padlock.png" alt="" />
+                    <img src="/padlock.png" alt="" />
                     <Link>Cambiar contraseña</Link>
                 </li>
-                <button onClick={handleLogout}>Salir</button>
+                <button className="user__btn" onClick={handleLogout}>Salir</button>
 
             </ul>
         </div >

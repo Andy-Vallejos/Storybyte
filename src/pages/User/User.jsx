@@ -1,9 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../context/AuthProvider';
+import { useAuth } from '@/context/AuthProvider';
 import './User.css'
 
 
-export default function User() {
+export function User() {
     const { logout, user } = useAuth();
     const navigate = useNavigate();
 

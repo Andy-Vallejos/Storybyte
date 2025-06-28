@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import './BookDetail.css';
 
-export default function BookDetail() {
+export function BookDetail() {
     const { key } = useParams();
     const [book, setBook] = useState(null);
     const [author, setAuthor] = useState(null);

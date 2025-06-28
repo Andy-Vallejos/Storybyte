@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../context/AuthProvider';
+import { useAuth } from '@/context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import "./Login.css"
 
-export default function Login() {
+export function Login() {
     const { login } = useAuth();
     const navigate = useNavigate();
 

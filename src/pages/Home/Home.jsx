@@ -1,6 +1,6 @@
 import "./home.css"
 
-export default function Home() {
+export function Home() {
   return <span>Main</span>
 }
 

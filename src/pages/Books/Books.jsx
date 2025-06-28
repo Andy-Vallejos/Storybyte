@@ -1,8 +1,9 @@
-import { useBookLogic } from "./Logic/useBookLogic";
+import { useBookLogic } from "@/pages/Books/Logic/useBookLogic";
+import { BookCard } from "@/pages/Books/components/BookCard.jsx";
 import "./Books.css";
-import { BookCard } from "./components/BookCard.jsx";
 
-export default function Books() {
+
+export function Books() {
     const { books, loading, query, setQuery, handleSearch, hasMore, ratings } = useBookLogic();
 
     return (

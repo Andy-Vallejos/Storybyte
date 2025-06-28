@@ -1,5 +1,5 @@
 import './NavMobile.css'
-import { ButtonMobile } from '../index'
+import { ButtonMobile } from '@/components/index'
 
 export function NavMobile() {
     return (

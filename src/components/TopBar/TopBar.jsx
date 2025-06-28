@@ -1,7 +1,7 @@
 import './TopBar.css'
-import { ButtonMobile } from '../index'
-import { useLocation, Link } from 'react-router-dom'
-import { useAuth } from '../../context/AuthProvider';
+import { ButtonMobile } from '@/components/index'
+import { useLocation } from 'react-router-dom'
+import { useAuth } from '@/context/AuthProvider';
 
 
 export function TopBar() {

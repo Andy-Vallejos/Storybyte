@@ -1,5 +1,5 @@
 
-export default function MyBooks() {
+export function MyBooks() {
     return (
         <span>Pronto...</span>
     );

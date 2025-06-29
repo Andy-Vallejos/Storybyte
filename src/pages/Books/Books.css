@@ -1,7 +1,7 @@
 .books {
   width: 100%;
   height: auto;
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 0px 30px;
   display: flex;
   flex-direction: row;

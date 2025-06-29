@@ -25,17 +25,19 @@ export function User() {
                 <p> {user.email}</p>
             </section>
 
-            <ul>
+            <ul className='user__options'>
                 <li>
-                    <img src="/edit-profile.png" alt="" />
+                    <img src="/user-avatar.png" alt="" />
                     <Link>Editar perfil</Link>
                 </li>
                 <li>
-                    <img src="/padlock.png" alt="" />
+                    <img src="/key.png" alt="" />
                     <Link>Cambiar contraseña</Link>
                 </li>
-                <button className="user__btn" onClick={handleLogout}>Salir</button>
-
+                <li onClick={handleLogout}>
+                    <img src="/logout.png" alt="" />
+                    <Link>Cerrar sesion</Link>
+                </li>
             </ul>
         </div >
     )

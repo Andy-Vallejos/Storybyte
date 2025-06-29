@@ -24,7 +24,9 @@ export function Login() {
 
     return (
         <div className='login'>
+
             <form onSubmit={handleSubmit} className='login__form'>
+                <img src="/public/logo_storybyte.png" alt="" />
                 <input
                     className='login__form--input'
                     type="email"

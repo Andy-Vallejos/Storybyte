@@ -3,7 +3,7 @@
   height: 80px;
   border-radius: 20px 20px 0px 0px;
   padding: 20px;
-  background: rgb(0, 0, 0, 0.8);
+  background: linear-gradient(135deg, #1e1e28c8, #2c2c3ad2);
   position: fixed;
   bottom: 0;
   left: 0;

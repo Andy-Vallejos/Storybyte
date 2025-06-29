@@ -1,8 +1,7 @@
-// Books/Logic/useBookLogic.js
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { fetchBooks } from "./bookApi";
-import { generateRatings } from "./ratings";
+import { generateRatings } from "@/pages/Books/Logic/ratings";
 
 export function useBookLogic() {
   const [query, setQuery] = useState("");

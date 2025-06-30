@@ -22,7 +22,7 @@ export function TopBar() {
     return (
         <div className="topBar">
             <h1>{getTitle(location.pathname, stateTitle)}</h1>
-            {location.pathname === "/user" ? "" : <ButtonMobile img={user.img} url={"/user"} name='top' />}
+            {location.pathname === "/user" ? "" : <ButtonMobile img={user.photo || "/default-avatar.png"} url="/user" name="top" />}
         </div>
     )
 }

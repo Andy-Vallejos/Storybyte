@@ -1,48 +1,59 @@
-import axios from 'axios';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from "react";
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { db, auth } from "@/assets/firebaseConfig";
 
-const AuthContext = createContext(null);
+const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
-    const [users, setUsers] = useState([]);
-
-    const getUsers = async () => {
-        try {
-            const response = await axios.get("/data/users.json");
-            setUsers(response.data);
-        } catch (error) {
-            console.error("Error al obtener usuarios:", error);
-        }
-    };
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getUsers();
+        const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+            if (firebaseUser) {
+                const basicUser = {
+                    uid: firebaseUser.uid,
+                    email: firebaseUser.email,
+                    name: firebaseUser.displayName,
+                    photo: firebaseUser.photoURL
+                };
+                setUser(basicUser);
+
+                getDoc(doc(db, "usuarios", firebaseUser.uid))
+                    .then((userDoc) => {
+                        const customData = userDoc.exists() ? userDoc.data() : {};
+                        setUser((prev) => ({
+                            ...prev,
+                            name: customData.name || prev.name,
+                            photo: customData.photo || prev.photo,
+                            books: customData.books || []
+                        }));
+                    })
+                    .catch((error) => {
+                        console.error("Error fetching Firestore data:", error);
+                    });
+            } else {
+                setUser(null);
+            }
+            setLoading(false);
+        });
+
+        return () => unsubscribe();
     }, []);
 
-    const login = (email, password) => {
-        const foundUser = users.find(u => u.email === email);
-        if (!foundUser || foundUser.password !== password) return false;
+    const login = (email, password) =>
+        signInWithEmailAndPassword(auth, email, password);
 
-        setUser(foundUser);
-        return true;
-    };
-
-    const logout = () => {
-        setUser(null);
-    };
+    const logout = () => signOut(auth);
 
     return (
         <AuthContext.Provider value={{ user, login, logout }}>
-            {children}
+            {!loading && children}
         </AuthContext.Provider>
     );
 }
 
 export function useAuth() {
-    const context = useContext(AuthContext);
-    if (!context) {
-        throw new Error("useAuth debe usarse dentro de un AuthProvider");
-    }
-    return context;
+    return useContext(AuthContext);
 }

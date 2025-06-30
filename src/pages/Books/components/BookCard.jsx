@@ -12,11 +12,10 @@ export function BookCard({ book, rating }) {
     return (
         <Link to={`/books/${book.key?.replace("/works/", "")}`} state={{ title: book.title }} className="card__link">
             <div className="card">
-                <div className="card__img" style={{
-                    backgroundImage: `url('${imageUrl}')`,
-                }}>
-                    {!imgLoaded && <img src="/loading.gif"></img>}
-                    <img src={imageUrl} alt={book.title} style={{ display: "none" }} onLoad={() => setImgLoaded(true)} />
+
+                <div className="card__img" style={{ backgroundImage: `url('${imageUrl}')`, }}>
+                    {!imgLoaded && <img src="/loading.gif" />}
+                    <img src={imageUrl} alt={book.title} style={{ display: "none", position: "absolute" }} onLoad={() => setImgLoaded(true)} />
                 </div>
                 <h1 className="card__title">{book.title}</h1>
                 <footer className="card__footer">

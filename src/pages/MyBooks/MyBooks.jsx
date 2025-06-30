@@ -1,42 +1,65 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './MyBooks.css';
+import { useAuth } from '@/context/AuthProvider';
+import axios from "axios";
+import { Link } from 'react-router-dom';
+import ProgressBar from "@ramonak/react-progress-bar";
 
 export function MyBooks() {
+    const { user } = useAuth();
+    const [booksData, setBooksData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        const fetchBooks = async () => {
+            const fetchedBooks = await Promise.all(
+                user.books.map(async (key) => {
+                    try {
+                        const response = await axios.get(`https://openlibrary.org/works/${key}.json`);
+                        const covers = response.data.covers;
+                        const imageUrl = covers?.[0]
+                            ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg`
+                            : "/default-cover.jpg";
+
+                        return {
+                            key,
+                            title: response.data.title,
+                            imageUrl
+                        };
+                    } catch (error) {
+                        console.error(`Error al obtener el libro ${key}:`, error);
+                        return null;
+                    }
+                })
+            );
+            setLoading(true);
+            setBooksData(fetchedBooks.filter(Boolean));
+        };
+
+        if (user.books?.length > 0) {
+            fetchBooks();
+        }
+    }, [user.books]);
+
     return (
         <div className="myBooks">
-            <article className="myBooks__card">
-                <section className="myBooks__card--img" style={{ backgroundImage: `url("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/art-book-cover-design-template-34323b0f0734dccded21e0e3bebf004c_screen.jpg?ts=1637015198")` }}>
-                </section>
-                <section className='myBooks__card--info'>
-                    <h1>TITULO</h1>
-                    <h1>ESTADO <span>Leyendo</span></h1>
-                    <h1><span style={{ color: 'green' }}>100/200</span></h1>
-                    <h1>INICIO <span>12 de Junio</span></h1>
-                    <h1>FIN ...</h1>
-                </section>
-            </article>
-            <article className="myBooks__card">
-                <section className="myBooks__card--img" style={{ backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsfxrcUtlaLqSTTpA7N9cWKIopvRNtXngM2A&s")` }}>
-                </section>
-                <section className='myBooks__card--info'>
-                    <h1>TITULO</h1>
-                    <h1>ESTADO <span>Termin...</span></h1>
-                    <h1><span style={{ color: 'green' }}>200/200</span></h1>
-                    <h1>INICIO <span>12 de Junio</span></h1>
-                    <h1>FIN <span>30 de agosto</span></h1>
-                </section>
-            </article>
-            <article className="myBooks__card">
-                <section className="myBooks__card--img" style={{ backgroundImage: `url("https://images.squarespace-cdn.com/content/v1/5fc7868e04dc9f2855c99940/d13d2ad3-bca7-4544-b7bf-71bf7af7b283/laura-barrett-illustration-moon-stars-book-cover-design.jpg")` }}>
-                </section>
-                <section className='myBooks__card--info'>
-                    <h1>TITULO</h1>
-                    <h1>ESTADO <span>Leyendo</span></h1>
-                    <h1><span style={{ color: 'green' }}>100/200</span></h1>
-                    <h1>INICIO <span>12 de Junio</span></h1>
-                    <h1>FIN ...</h1>
-                </section>
-            </article>
+            {!loading ? <img src='/loading.gif' /> : booksData.map((book) => (
+                <Link to={`/my-books/${book.key}`} key={book.key}>
+                    <article className="myBooks__card">
+                        <section
+                            className="myBooks__card--img"
+                            style={{ backgroundImage: `url(${book.imageUrl})` }}
+                        />
+                        <section className='myBooks__card--info'>
+                            <h1>{book.title}</h1>
+                            <h1>ESTADO <span className='mybooks__card--estado'>Leyendo</span></h1>
+                            <ProgressBar completed={Math.floor(Math.random() * 100)} maxCompleted={100} labelColor='black' baseBgColor="transparent" bgColor="#ffffff" />
+                            <h1>INICIO <span className='mybooks__card--estado'>12 de Junio</span></h1>
+                            <h1>FIN ...</h1>
+                        </section>
+                    </article>
+                </Link>
+            ))}
+
         </div>
     );
 }

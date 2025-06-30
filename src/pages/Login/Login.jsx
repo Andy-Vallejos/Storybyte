@@ -1,30 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
-import "./Login.css"
+import "./Login.css";
 
 export function Login() {
-    const { login } = useAuth();
+    const { login, user } = useAuth();
     const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const success = login(email, password);
-        if (!success) {
-            setError("Email o contraseña incorrectos");
-        } else {
-            setError(null);
+    useEffect(() => {
+        if (user) {
             navigate('/');
+        }
+    }, [user]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await login(email, password);
+            setError(null);
+        } catch (err) {
+            setError("Email o contraseña incorrectos");
+            console.error(err);
         }
     };
 
     return (
         <div className='login'>
-
             <form onSubmit={handleSubmit} className='login__form'>
                 <img src="/logo_storybyte.png" alt="" />
                 <input

@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/context/AuthProvider';
 import './User.css'
+import { useEffect } from 'react';
 
 
 export function User() {
@@ -11,11 +12,16 @@ export function User() {
         logout();
         navigate('/login');
     };
+
+    useEffect(() => {
+        console.log(user)
+    })
+
     return (
         <div className='user'>
             <div className="img"
                 style={{
-                    backgroundImage: `url(${user.img})`,
+                    backgroundImage: `url(${user.photo})`,
                 }}>
             </div>
             <section className='user__info'>

@@ -1,12 +1,10 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { fetchBooks } from "./bookApi";
-import { generateRatings } from "@/pages/Books/Logic/ratings";
 
 export function useBookLogic() {
   const [query, setQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("popular");
-  const [ratings, setRatings] = useState({});
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useInfiniteQuery({
@@ -21,14 +19,6 @@ export function useBookLogic() {
   if (data && data.pages) {
     books = data.pages.flat();
   }
-
-  useEffect(() => {
-    if (books.length === 0) return;
-    const newRatings = generateRatings(books, ratings);
-    if (Object.keys(newRatings).length > 0) {
-      setRatings((prev) => ({ ...prev, ...newRatings }));
-    }
-  }, [books, ratings]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -61,6 +51,5 @@ export function useBookLogic() {
     setQuery,
     handleSearch,
     hasMore: hasNextPage,
-    ratings,
   };
 }

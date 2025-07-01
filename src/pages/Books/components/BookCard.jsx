@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./BookCard.css";
 
-export function BookCard({ book, rating }) {
+
+export function BookCard({ book }) {
     const [imgLoaded, setImgLoaded] = useState(false);
 
     const imageUrl = book.cover_i
@@ -19,7 +20,7 @@ export function BookCard({ book, rating }) {
                 </div>
                 <h1 className="card__title">{book.title}</h1>
                 <footer className="card__footer">
-                    <h3>{rating}⭐</h3>
+                    <h3>⭐</h3>
                     <h3>{book.author_name?.[0] || "Autor desconocido"}</h3>
                 </footer>
             </div>

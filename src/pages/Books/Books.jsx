@@ -4,7 +4,7 @@ import "./Books.css";
 
 
 export function Books() {
-    const { books, loading, query, setQuery, handleSearch, hasMore, ratings } = useBookLogic();
+    const { books, loading, query, setQuery, handleSearch, hasMore } = useBookLogic();
 
     return (
         <div className="books">
@@ -13,10 +13,9 @@ export function Books() {
                 <button className="books__form--btn" type="submit">Buscar</button>
             </form>
 
-            {books.map((book) => <BookCard key={book.key} book={book} rating={ratings[book.edition_key]} />)}
+            {books.map((book) => <BookCard key={book.key} book={book} />)}
 
             {loading && <img src="/loading.gif"></img>}
-
             {!hasMore && !loading && (
                 <div className="end-message">
                     <span>No hay más libros que mostrar.</span>

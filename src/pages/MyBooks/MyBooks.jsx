@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './MyBooks.css';
+import { Link } from 'react-router-dom';
 import { useAuth } from '@/context/AuthProvider';
 import axios from "axios";
-import { Link } from 'react-router-dom';
 import ProgressBar from "@ramonak/react-progress-bar";
+import './MyBooks.css';
+
+
 
 export function MyBooks() {
     const { user } = useAuth();
@@ -52,14 +54,14 @@ export function MyBooks() {
                         <section className='myBooks__card--info'>
                             <h1>{book.title}</h1>
                             <h1>ESTADO <span className='mybooks__card--estado'>Leyendo</span></h1>
-                            <ProgressBar completed={Math.floor(Math.random() * 100)} maxCompleted={100} labelColor='black' baseBgColor="transparent" bgColor="#ffffff" />
+                            <ProgressBar completed={Math.floor(Math.random() * 100)} labelColor='black' baseBgColor="transparent" bgColor="#ffffff" />
                             <h1>INICIO <span className='mybooks__card--estado'>12 de Junio</span></h1>
                             <h1>FIN ...</h1>
                         </section>
                     </article>
                 </Link>
             ))}
-
+            <br /><br /><br />
         </div>
     );
 }

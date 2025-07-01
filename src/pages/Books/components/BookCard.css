@@ -57,11 +57,11 @@
 
 @media (min-width: 600px) {
   .card__link {
-    width: 300px;
+    width: 280px;
     height: auto;
   }
   .card {
-    height: 400px;
+    height: 350px;
   }
   .card:hover {
     transform: scale(1.1);

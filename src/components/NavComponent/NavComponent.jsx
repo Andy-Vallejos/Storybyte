@@ -22,7 +22,7 @@ export function NavComponent() {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			const offset = 100
+			const offset = 1
 			setIsFixed(window.scrollY > offset)
 		}
 
@@ -67,11 +67,14 @@ export function NavComponent() {
 			</ul>
 
 			<div className='nav__user'>
-				<ButtonComponent
-					img={user.photo || '/default-avatar.png'}
-					url='/user'
-					name='user'
-				/>
+				<div
+					style={{ display: location.pathname === '/user' ? 'none' : 'flex' }}>
+					<ButtonComponent
+						img={user.photo || '/default-avatar.png'}
+						url='/user'
+						name='user'
+					/>
+				</div>
 			</div>
 		</div>
 	)

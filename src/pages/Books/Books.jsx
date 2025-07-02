@@ -25,7 +25,7 @@ export function Books() {
 				<BookCard key={book.key} book={book} />
 			))}
 
-			{loading && <img src='/loading.gif'></img>}
+			{loading && <img src='/loading.gif' style={{ width: '400px' }}></img>}
 			{!hasMore && !loading && (
 				<div className='end-message'>
 					<span>No hay más libros que mostrar.</span>

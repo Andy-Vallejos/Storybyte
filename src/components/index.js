@@ -1,3 +1,2 @@
-export * from "./ButtonMobile/ButtonMobile";
-export * from "./NavMobile/NavMobile";
-export * from "./TopBar/TopBar";
+export * from './ButtonComponent/ButtonComponent'
+export * from './NavComponent/NavComponent'

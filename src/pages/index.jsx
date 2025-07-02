@@ -1,37 +1,9 @@
-import { createBrowserRouter } from 'react-router-dom'
-import { Home } from '@/pages/Home/Home';
-import { MyBooks } from '@/pages/MyBooks/MyBooks';
-import { Layout } from '@/pages/Layout/Layout';
-import { User } from "@/pages/User/User"
-import { Books } from '@/pages/Books/Books';
-import { BookDetail } from '@/pages/BookDetail/BookDetail';
-import { ProtectedRoute } from '@/pages/ProtectedRoute/ProtectedRoute';
-import { Login } from '@/pages/Login/Login';
-import { ReadBook } from '@/pages/ReadBook/ReadBook';
-
-const router = createBrowserRouter([
-    {
-        path: '/login',
-        element: <Login />
-    },
-    {
-        path: '/',
-        element: (
-            <ProtectedRoute>
-                <Layout />
-            </ProtectedRoute>
-        ),
-        children: [
-            { index: true, element: <Home /> },
-            { path: 'books', element: <Books /> },
-            { path: 'books/:key', element: <BookDetail /> },
-            { path: 'my-books', element: <MyBooks /> },
-            { path: 'my-books/:key', element: <ReadBook /> },
-            { path: 'user', element: <User /> },
-        ]
-    }
-]);
-
-
-
-export default router;
+export * from '@/pages/Home/Home'
+export * from '@/pages/MyBooks/MyBooks'
+export * from '@/pages/Layout/Layout'
+export * from '@/pages/User/User'
+export * from '@/pages/Books/Books'
+export * from '@/pages/BookDetail/BookDetail'
+export * from '@/pages/ProtectedRoute/ProtectedRoute'
+export * from '@/pages/Login/Login'
+export * from '@/pages/ReadBook/ReadBook'

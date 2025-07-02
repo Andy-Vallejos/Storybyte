@@ -1,8 +1,5 @@
-import "./home.css"
+import './home.css'
 
 export function Home() {
-  return <span>Main</span>
+	return <span>Main</span>
 }
-
-
-

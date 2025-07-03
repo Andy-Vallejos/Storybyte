@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		const unsubscribe = onAuthStateChanged(auth, firebaseUser => {
+		const unsubscribe = onAuthStateChanged(auth, async firebaseUser => {
 			if (firebaseUser) {
 				const basicUser = {
 					uid: firebaseUser.uid,
@@ -22,21 +22,20 @@ export function AuthProvider({ children }) {
 					name: firebaseUser.displayName,
 					photo: firebaseUser.photoURL,
 				}
-				setUser(basicUser)
 
-				getDoc(doc(db, 'usuarios', firebaseUser.uid))
-					.then(userDoc => {
-						const customData = userDoc.exists() ? userDoc.data() : {}
-						setUser(prev => ({
-							...prev,
-							name: customData.name || prev.name,
-							photo: customData.photo || prev.photo,
-							books: customData.books || [],
-						}))
+				try {
+					const userDoc = await getDoc(doc(db, 'usuarios', firebaseUser.uid))
+					const customData = userDoc.exists() ? userDoc.data() : {}
+					setUser({
+						...basicUser,
+						name: customData.name || basicUser.name,
+						photo: customData.photo || basicUser.photo,
+						books: customData.books || [],
 					})
-					.catch(error => {
-						console.error('Error fetching Firestore data:', error)
-					})
+				} catch (error) {
+					console.error('Error fetching Firestore data:', error)
+					setUser(basicUser)
+				}
 			} else {
 				setUser(null)
 			}
@@ -45,7 +44,6 @@ export function AuthProvider({ children }) {
 
 		return () => unsubscribe()
 	}, [])
-
 	const login = (email, password) =>
 		signInWithEmailAndPassword(auth, email, password)
 

@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/context/AuthProvider'
 import './User.css'
-import { useEffect } from 'react'
 
 export function User() {
 	const { logout, user } = useAuth()
@@ -11,103 +10,86 @@ export function User() {
 		logout()
 		navigate('/login')
 	}
-
-	useEffect(() => {
-		console.log(user)
-	})
-
 	return (
 		<div className='user'>
-			<div className='user__form'>
-				<div
-					className='img'
-					style={{
-						backgroundImage: `url(${user.photo})`,
-					}}></div>
-				<section className='user__info'>
+			<section className='user__info'>
+				<img src={user.photo} alt='' />
+				<div className='user__info--data'>
 					<h1>{user.name}</h1>
-					<h1> {user.email}</h1>
-				</section>
-
-				<ul className='user__options'>
-					<li className='user__edit'>
-						<img src='/user-avatar.png' alt='' />
-						<Link>
-							<h1>Editar perfil</h1>
-						</Link>
-					</li>
-					<li className='user__edit'>
-						<img src='/key.png' alt='' />
-						<Link>
-							<h1>Cambiar contraseña</h1>
-						</Link>
-					</li>
-					<li onClick={handleLogout} className='user__edit'>
-						<img src='/logout.png' alt='' />
-						<Link>
-							<h1>Cerrar sesion</h1>
-						</Link>
-					</li>
-				</ul>
-			</div>
-			<div className='user__main'>
-				<h1>Informacion Personal</h1>
-				<form action=''>
-					<section className='user__main--gender'>
-						<label htmlFor=''>
-							<h1>Hombre</h1>
-						</label>
-						<input type='radio' name='gender' value='male' />
-
-						<label htmlFor=''>
-							<h1>Mujer</h1>
-						</label>
-						<input type='radio' name='gender' value='female' />
-					</section>
-					<section className='user__main--names'>
+					<h1>{user.email}</h1>
+					<button className='user__logout' onClick={handleLogout}>
+						Cerrar sesión
+					</button>
+				</div>
+			</section>
+			<section className='user__section'>
+				<h1>EDITAR PERFIL</h1>
+				<form action='' className='user__form'>
+					<section className='user__form--names'>
 						<div>
-							<label htmlFor=''>
-								<h1>Nombre</h1>
-							</label>
-							<input type='text' name='name' placeholder='Ingresa tu nombre' />
-						</div>
-						<div>
-							<label htmlFor=''>
-								<h1>Apellido</h1>
-							</label>
+							<h1>Nombre</h1>
 							<input
 								type='text'
-								name='lastName'
-								placeholder='Ingresa tu apellido'
+								placeholder='Escriba algo...'
+								className='user__form--input'
+							/>
+						</div>
+						<div>
+							<h1>Apellido</h1>
+							<input
+								type='text'
+								placeholder='Escriba algo...'
+								className='user__form--input'
 							/>
 						</div>
 					</section>
-					<section className='user__main--email'>
-						<label htmlFor=''>
-							<h1>Email</h1>
-						</label>
-						<input type='email' placeholder='ejemplo@correo.com' />
-					</section>
-					<section className='user__main--names'>
-						<div>
-							<label htmlFor=''>
-								<h1>Numero</h1>
-							</label>
-							<input type='number' name='phone' placeholder='+000 000 0000 0' />
-						</div>
-						<div>
-							<label htmlFor=''>
-								<h1>Fecha de nacimiento</h1>
-							</label>
-							<input type='date' name='date' />
-						</div>
-					</section>
-					<section className='user__main--buttons'>
-						<button>Descartar cambios</button>
-						<button>Guardar cambios</button>
+					<h1>Email</h1>
+					<input
+						type='email'
+						placeholder='example@domain.com'
+						className='user__form--input'
+					/>
+					<section className='user__form--buttons'>
+						<button type='submit' className='user__form--button  border__blue'>
+							Cancelar
+						</button>
+						<button type='submit' className='user__form--button blue'>
+							Guardar
+						</button>
 					</section>
 				</form>
-			</div>
+			</section>
+			<section className='user__section'>
+				<h1>CAMBIAR CONTRASEÑA</h1>
+				<form action='' className='user__form'>
+					<h1>Contraseña actual</h1>
+					<input
+						type='password'
+						placeholder='Ingrese su contraseña actual'
+						className='user__form--input'
+					/>
+					<h1>Nueva contraseña</h1>
+					<input
+						type='password'
+						placeholder='Ingrese su nueva contraseña'
+						className='user__form--input'
+					/>
+					<h1>Confirmar nueva contraseña</h1>
+					<input
+						type='password'
+						placeholder='Confirme su nueva contraseña'
+						className='user__form--input'
+					/>
+					<section className='user__form--buttons'>
+						<button type='submit' className='user__form--button border__purple'>
+							Cancelar
+						</button>
+						<button type='submit' className='user__form--button purple'>
+							Guardar
+						</button>
+					</section>
+				</form>
+			</section>
 		</div>
 	)
 }

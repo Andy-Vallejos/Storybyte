@@ -10,11 +10,11 @@
 	padding: 10px;
 	transition: all 0.4s ease;
 	position: static;
-	top: 0;
 }
 
 .nav.fixed {
 	position: fixed;
+	top: 0;
 }
 
 .nav__title {
